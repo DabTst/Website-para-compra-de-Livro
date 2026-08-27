@@ -1,0 +1,344 @@
+/* ============ Tokens ============ */
+:root{
+  --bg: #1B2420;
+  --surface: #212B24;
+  --surface-2: #283329;
+  --paper: #F2EDE4;
+  --paper-dim: #C9C2B2;
+  --gold: #C9A227;
+  --gold-soft: #E4C563;
+  --sage: #7C9473;
+  --line: rgba(242,237,228,0.14);
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--paper);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width:100%; display:block; }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin: 0 0 0.9rem;
+}
+
+/* subtle film-grain texture over everything, purely decorative */
+.grain{
+  position: fixed; inset:0; pointer-events:none; z-index: 50;
+  opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ Topbar ============ */
+.topbar{
+  position: sticky; top:0; z-index: 40;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 1.1rem clamp(1.25rem, 5vw, 4rem);
+  background: rgba(27,36,32,0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.brand{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+.topbar-cta{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--paper);
+  text-decoration:none;
+  border: 1px solid var(--line);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.topbar-cta:hover{ border-color: var(--gold); color: var(--gold-soft); }
+
+/* ============ Buttons ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  text-decoration:none;
+  cursor:pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{
+  background: var(--gold);
+  color: #1B2420;
+}
+.btn-primary:hover{ background: var(--gold-soft); }
+.btn-ghost{
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--line);
+}
+.btn-ghost:hover{ border-color: var(--paper-dim); }
+.btn-block{ width:100%; }
+
+/* ============ Hero ============ */
+.hero{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items:center;
+  gap: 3rem;
+  padding: clamp(3rem,8vw,6rem) clamp(1.25rem,5vw,4rem) clamp(2rem,6vw,4rem);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.hero h1{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  line-height: 0.98;
+  margin: 0 0 1.4rem;
+  letter-spacing: -0.01em;
+}
+.hero-sub{
+  color: var(--paper-dim);
+  font-size: 1.05rem;
+  max-width: 32rem;
+  margin: 0 0 2rem;
+}
+.hero-actions{ display:flex; gap: 0.9rem; flex-wrap:wrap; }
+
+.hero-cover{ display:flex; justify-content:center; }
+.cover{
+  position: relative;
+  width: min(280px, 70vw);
+  aspect-ratio: 2/3;
+  background: linear-gradient(155deg, var(--surface-2), var(--surface) 70%);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+  padding: 2rem 1.6rem;
+  display:flex; flex-direction:column;
+  transform: rotate(-2deg);
+}
+.cover-eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.cover-title{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  margin-top: auto;
+  margin-bottom: 1.4rem;
+}
+.cover-author{
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+}
+.cover-spine{
+  position:absolute; left:0; top:0; bottom:0; width: 10px;
+  background: linear-gradient(180deg, var(--gold), var(--sage));
+  border-radius: 4px 0 0 4px;
+}
+
+/* ============ Sobre ============ */
+.sobre{
+  border-top: 1px solid var(--line);
+  padding: clamp(3rem,7vw,5rem) clamp(1.25rem,5vw,4rem);
+}
+.sobre-inner{ max-width: 44rem; margin: 0 auto; }
+.sinopse{
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--paper);
+}
+.sinopse-fade{ font-style: italic; color: var(--gold-soft); }
+.quote{
+  margin-top: 2.5rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--sage);
+}
+.quote p{
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--paper-dim);
+  margin: 0 0 0.5rem;
+}
+.quote span{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--sage);
+}
+
+/* ============ Comprar ============ */
+.comprar{
+  border-top: 1px solid var(--line);
+  padding: clamp(3rem,7vw,5rem) clamp(1.25rem,5vw,4rem) clamp(4rem,8vw,6rem);
+  text-align:center;
+}
+.comprar h2{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 0.6rem;
+}
+.comprar-sub{
+  color: var(--paper-dim);
+  max-width: 30rem;
+  margin: 0 auto 3rem;
+}
+
+.price-card{
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+}
+.price-card-body{ padding: 2.2rem 2rem; }
+.price-label{
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--sage);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.price-amount{
+  display:block;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0.3rem 0 1.2rem;
+}
+.price-currency{
+  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  color: var(--paper-dim);
+  margin-left: 0.35rem;
+}
+.price-list{
+  list-style:none; margin:0 0 1.6rem; padding:0;
+  display:flex; flex-direction:column; gap: 0.55rem;
+}
+.price-list li{
+  font-size: 0.9rem;
+  color: var(--paper-dim);
+  padding-left: 1.3rem;
+  position: relative;
+}
+.price-list li::before{
+  content: "";
+  position:absolute; left:0; top:0.5em;
+  width:6px; height:6px; border-radius:50%;
+  background: var(--gold);
+}
+.price-note{
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+  text-align:center;
+  margin: 0.9rem 0 0;
+}
+
+/* signature element: a page-corner fold that grows on hover/focus,
+   evoking someone dog-earing the page they're about to buy */
+.price-card-fold{
+  position:absolute; top:0; right:0;
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, transparent 50%, var(--bg) 50%);
+  transition: width 0.25s ease, height 0.25s ease;
+}
+.price-card-fold::after{
+  content:"";
+  position:absolute; top:0; right:0;
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--gold) 50%, transparent 51%);
+  opacity: 0.9;
+}
+.price-card:hover .price-card-fold,
+.price-card:focus-within .price-card-fold{
+  width: 54px; height: 54px;
+}
+.price-card:hover .price-card-fold::after,
+.price-card:focus-within .price-card-fold::after{
+  width: 54px; height: 54px;
+}
+
+.steps{
+  list-style:none; margin: 3rem auto 0; padding:0;
+  max-width: 460px;
+  display:flex; flex-direction:column; gap: 0.9rem;
+  text-align:left;
+}
+.steps li{
+  display:flex; align-items:baseline; gap: 0.9rem;
+  font-size: 0.92rem;
+  color: var(--paper-dim);
+}
+.steps li span{
+  font-family: var(--font-mono);
+  color: var(--gold-soft);
+  font-size: 0.78rem;
+}
+
+/* ============ Footer ============ */
+.footer{
+  border-top: 1px solid var(--line);
+  padding: 1.6rem clamp(1.25rem,5vw,4rem) 2.4rem;
+  display:flex; gap: 0.5rem; align-items:center;
+  justify-content:center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+}
+.footer-sep{ color: var(--sage); }
+
+/* ============ Accessibility ============ */
+a:focus-visible, button:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior:auto !important; transition:none !important; }
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 860px){
+  .hero{
+    grid-template-columns: 1fr;
+    text-align:center;
+    padding-top: 3rem;
+  }
+  .hero-sub{ margin-left:auto; margin-right:auto; }
+  .hero-actions{ justify-content:center; }
+  .hero-cover{ order:-1; }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Livro- No meio delas</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div class="grain"></div>
+     
+    <header class="topbar">
+      <span class="brand">Última Página</span>
+      <a href="#comprar" class="topbar-cta">Comprar o ebook</a>
+    </header>
+     
+    <main>
+       
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Romance · lançamento digital</p>
+          <h1>A Última<br />Página</h1>
+          <p class="hero-sub">
+            Um romance sobre o que ficamos por dizer. Nádia Chissano escreve
+            sobre memória, mar e as cartas que nunca chegaram a ser enviadas.
+          </p>
+          <div class="hero-actions">
+            <a href="#comprar" class="btn btn-primary">Quero o meu exemplar</a>
+            <a href="#sobre" class="btn btn-ghost">Ler a sinopse</a>
+          </div>
+        </div>
+         
+        <div class="hero-cover" aria-hidden="true">
+          <div class="cover">
+            <span class="cover-eyebrow">romance</span>
+            <span class="cover-title">A Última<br />Página</span>
+            <span class="cover-author">Nádia Chissano</span>
+            <div class="cover-spine"></div>
+          </div>
+        </div>
+      </section>
+       
+      <!-- SOBRE -->
+      <section id="sobre" class="sobre">
+        <div class="sobre-inner">
+          <p class="eyebrow">Sinopse</p>
+          <p class="sinopse">
+            Maputo, 1998. Quando Amélia herda a casa da avó junto ao mar,
+            encontra uma caixa de cartas nunca enviadas — escritas ao longo de
+            trinta anos, a um destinatário que nunca é nomeado. Para perceber
+            quem era a mulher que criou, Amélia terá de reconstruir uma história
+            de amor, silêncio e escolhas que atravessou gerações.
+            <span class="sinopse-fade">A Última Página</span> é um romance sobre
+            tudo aquilo que guardamos por perto sem nunca dizer em voz alta.
+          </p>
+          <div class="quote">
+            <p>
+              “Chissano escreve o silêncio como quem escreve música — cada pausa
+              tem peso, cada carta por abrir é um compasso de espera.”
+            </p>
+            <span>— crítica literária, exemplo</span>
+          </div>
+        </div>
+      </section>
+       
+      <!-- COMPRAR -->
+      <section id="comprar" class="comprar">
+        <p class="eyebrow">Edição digital</p>
+        <h2>Leve a história consigo</h2>
+        <p class="comprar-sub">
+          Ebook em PDF, entregue diretamente no seu WhatsApp após a confirmação
+          do pagamento.
+        </p>
+         
+        <div class="price-card" id="priceCard">
+          <div class="price-card-fold" aria-hidden="true"></div>
+          <div class="price-card-body">
+            <span class="price-label">Ebook — PDF</span>
+            <span class="price-amount"
+              >450<span class="price-currency">MT</span></span
+            >
+            <ul class="price-list">
+              <li>Formato PDF, leitura em qualquer dispositivo</li>
+              <li>Entrega por WhatsApp após confirmação</li>
+              <li>Pagamento por M-Pesa</li>
+            </ul>
+            <button class="btn btn-primary btn-block" id="buyBtn">
+              Comprar via WhatsApp
+            </button>
+            <p class="price-note">
+              Ao clicar, o WhatsApp abre com uma mensagem pronta. Falta só
+              enviar.
+            </p>
+          </div>
+        </div>
+         
+        <ol class="steps">
+          <li><span>01</span>Clique em “Comprar via WhatsApp”</li>
+          <li><span>02</span>Confirme os seus dados e envie a mensagem</li>
+          <li>
+            <span>03</span>Faça o pagamento por M-Pesa para o número indicado
+          </li>
+          <li><span>04</span>Receba o ebook em PDF diretamente na conversa</li>
+        </ol>
+      </section>
+       
+    </main>
+     
+    <footer class="footer">
+      <span>A Última Página — Nádia Chissano</span>
+      <span class="footer-sep">·</span>
+      <span>Maputo, 2026</span>
+    </footer>
+  </body>
+</html>
